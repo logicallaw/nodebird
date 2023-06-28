@@ -14,7 +14,11 @@
   <div class="container">
     <div class="profile-wrap">
       <div class="profile">
-        <h1 class="logo">NodeBird</h1>
+        <div class="logo-btn">
+          <a class="logo" href="/" title="NodeBird">
+            <h1 class="logo">NodeBird</h1>
+          </a>
+        </div>
         <form id="login-form" action="/auth/login" method="post">
           <div class="input-group">
             <label for="email">ID</label>
@@ -32,9 +36,9 @@
           <a id="naver" href="/auth/naver" class="btn"></a>
         </form>
       </div>
-    </div>
     {% block content %}
     {% endblock %}
+    </div>
   </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>

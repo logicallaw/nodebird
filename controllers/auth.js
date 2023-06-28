@@ -1,11 +1,11 @@
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-const { User } = require('../models/user');
+const User= require('../models/user');
 
 exports.join = async (req,res,next) => {
   const {email,nick,password} = req.body
   try {
-    const exUser = await User.findOne({where:email})
+    const exUser = await User.findOne({where:{email:email}})
     if (exUser) {
       return res.redirect('/join?error=exist')
     }
