@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="timeline">
+    <div class="followings-half">
+      <h2 class="following-half">팔로잉 목록</h2>
+      {% if user.Followings %}
+        {% for following in user.Followings %}
+          <div class="following-half">{{following.nick}}</div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="followers-half">
+      <h2 class="following-half">팔로워 목록</h2>
+      {% if user.Followers %}
+        {% for follower in user.Followers %}
+          <div class="following-half">{{follower.nick}}</div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <a href="/main" title="main" class="btn_main" >돌아가기</a>
+  </div>
+
+{% endblock %}

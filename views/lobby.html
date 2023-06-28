@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="/style1.css">
+  <link rel="icon" href="nodebird.png" type="image/png">
+</head>
+
+<body>
+  <div class="container">
+    <div class="profile-wrap">
+      <div class="profile">
+        <h1 class="logo">NodeBird</h1>
+        <form id="login-form" action="/auth/login" method="post">
+          <div class="input-group">
+            <label for="email">ID</label>
+            <input id="email" type="email" name="email" required>
+          </div>
+          <div class="input-group">
+            <label for="password">PW</label>
+            <input id="password" type="password" name="password" required>
+          </div>
+          <button id="login" type="submit" class="btn">로그인</button>
+          <a id="join" href="/join" class="btn">회원가입</a>
+          <a id="kakao" href="/auth/kakao" class="btn"></a>
+          <a id="google" href="/auth/google" class="btn"></a>
+          <a id="facebook" href="/auth/facebook" class="btn"></a>
+          <a id="naver" href="/auth/naver" class="btn"></a>
+        </form>
+      </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    window.onload = () => {
+      if (new URL(location.href).searchParams.get('error')) {
+        alert(new URL(location.href).searchParams.get('error'));
+      }
+    };
+  </script>
+</body>
+
+</html>
