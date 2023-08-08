@@ -11,8 +11,8 @@ exports.follow=async(req,res,next)=>{
     } else {
         res.status(404).send('no user')
     }
-} catch (error) {
-    console.error(error)
-    next(error)
-}
+    } catch (error) {
+        console.error(error)
+        next(error)
+    }
 }

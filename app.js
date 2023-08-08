@@ -21,7 +21,7 @@ const app=express()
 const https=require('https')
 
 passportConfig() //패스포트 설정
-// app.set('port',process.env.PORT || 8001)
+app.set('port',process.env.PORT || 8001)
 //HTTPS로 서버 구현
 const sslOptions={
     key:fs.readFileSync('./sslOptions/server.key'),
@@ -29,9 +29,9 @@ const sslOptions={
     csr:fs.readFileSync('./sslOptions/server.csr'),
     passphrase:'0000'
 }
-const server=https.createServer(sslOptions,app,(req,res)=>{
-                console.log('Https로 서버 구동하기')
-            })
+// const server=https.createServer(sslOptions,app,(req,res)=>{
+//                 console.log('Https로 서버 구동하기')
+//             })
 
 app.set('view engine','html')
 nunjucks.configure('views',{
@@ -83,9 +83,11 @@ app.use((err,req,res,next)=>{
     res.render('error')
 })
 
+module.exports=app
+
 // app.listen(app.get('port'),()=>{
 //     console.log(app.get('port'),'번 포트에서 대기중')
 // })
-server.listen(8001,()=>{
-    console.log('Https로 8001포트에서 서버 대기 중')
-})
+// server.listen(8001,()=>{
+//     console.log('Https로 8001포트에서 서버 대기 중')
+// })

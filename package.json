@@ -2,9 +2,11 @@
   "name": "nodebird",
   "version": "0.0.1",
   "description": "\"익스프레스로 만드는 SNS 서비스\"",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "author": "ZeroCho",
   "license": "MIT",
@@ -33,6 +35,9 @@
     "uuidv4": "^6.2.13"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "artillery": "^2.0.0-35",
+    "jest": "^29.6.2",
+    "nodemon": "^2.0.22",
+    "supertest": "^6.3.3"
   }
 }
